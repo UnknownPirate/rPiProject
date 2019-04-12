@@ -8,13 +8,13 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 '''USER CODE'''
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 from gpiozero import LED
 
 GPIO.setmode(GPIO.BCM)
 led=LED(23)
 
-led_pin=24
+led_pin=23
 GPIO.setup(led_pin, GPIO.OUT)
 pwm=GPIO.PWM(led_pin,100)
 pwm.start(100)
@@ -66,7 +66,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Message Box"))
-        self.pushButton.setText(_translate("MainWindow", "Click me"))
+        self.pushButton.setText(_translate("MainWindow", "On/Off"))
         self.label.setText(_translate("MainWindow", "Brightness"))
         '''USER CODE'''
         self.pushButton.clicked.connect(ledToggle)
